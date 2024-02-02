@@ -20,6 +20,7 @@ public class CPFTest {
 
         assertThrows(IllegalArgumentException.class, () -> new CPF("011.032.941-943"));
         assertThrows(IllegalArgumentException.class, () -> new CPF("011.032.941--3"));
+        assertThrows(IllegalArgumentException.class, () -> new Email(""));
         assertThrows(IllegalArgumentException.class, () -> new CPF(null));
     }
 
