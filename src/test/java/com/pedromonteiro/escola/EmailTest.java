@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class EmailTest {
     
     @Test
-    void emailDeveSerCriadoSeValido() {
+    void deveCriarEmailSeValido() {
         var email = "email@valido.com";
         var expected = new Email(email);
         assertNotNull(expected);
@@ -14,7 +14,7 @@ public class EmailTest {
     }
 
     @Test
-    void naoDeveCriarEmailsComEnderecosInvalidos() {
+    void naoDeveCriarEmailSeInvalido() {
         assertThrows(IllegalArgumentException.class, () -> new Email(null));
         assertThrows(IllegalArgumentException.class, () -> new Email(""));
         assertThrows(IllegalArgumentException.class, () -> new Email("teste.teste.com"));
