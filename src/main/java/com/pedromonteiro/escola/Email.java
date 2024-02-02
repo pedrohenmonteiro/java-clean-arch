@@ -2,7 +2,7 @@ package com.pedromonteiro.escola;
 
 public class Email {
     
-    //Value object
+    //Value
 
     private String endereco;
 
@@ -13,6 +13,10 @@ public class Email {
             };
 
         this.endereco = endereco;
+    }
+
+    public String getEndereco() {
+        return endereco;
     }
 
     
