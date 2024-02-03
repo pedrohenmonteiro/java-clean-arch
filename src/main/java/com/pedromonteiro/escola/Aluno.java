@@ -14,10 +14,14 @@ public class Aluno {
     private List<Telefone> telefones = new ArrayList<>();
 
 
-    public Aluno(CPF cpf, String nome, Email email) {
+    private Aluno(CPF cpf, String nome, Email email) {
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
+    }
+
+    public static Aluno newAluno(String umCpf, String umNome, String umEmail) {
+        return new Aluno(new CPF(umCpf), umNome, new Email(umEmail));
     }
 
 
@@ -25,5 +29,23 @@ public class Aluno {
     public void adicionarTelefone(String ddd, String numero) {
         this.telefones.add(new Telefone(ddd, numero));
     }
+
+    public CPF getCpf() {
+        return cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+    
+
     
 }
