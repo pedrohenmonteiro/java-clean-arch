@@ -3,6 +3,8 @@ package com.pedromonteiro.escola;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import com.pedromonteiro.escola.aluno.Telefone;
+
 public class TelefoneTest {
     
     @Test
@@ -16,7 +18,7 @@ public class TelefoneTest {
     }
 
     @Test
-    void naoDeveCriarEmailSeInvalido() {
+    void naoDeveCriarTelefoneSeInvalido() {
         assertThrows(IllegalArgumentException.class, () -> new Telefone("030", "4994944"));
         assertThrows(IllegalArgumentException.class, () -> new Telefone("11", ""));
         assertThrows(IllegalArgumentException.class, () -> new Telefone(null, "933334444"));

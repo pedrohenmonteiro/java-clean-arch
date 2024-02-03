@@ -1,4 +1,4 @@
-package com.pedromonteiro.escola;
+package com.pedromonteiro.escola.aluno;
 
 public class Telefone {
     

@@ -2,6 +2,8 @@ package com.pedromonteiro.escola;
 
 import java.time.LocalDateTime;
 
+import com.pedromonteiro.escola.Aluno.Aluno;
+
 public class Indicacao {
 
     private Aluno indicante;

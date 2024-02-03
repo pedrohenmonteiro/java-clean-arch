@@ -1,6 +1,10 @@
 package com.pedromonteiro.escola;
 
 import org.junit.jupiter.api.Test;
+
+import com.pedromonteiro.escola.aluno.CPF;
+import com.pedromonteiro.escola.aluno.Email;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
