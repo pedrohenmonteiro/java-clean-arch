@@ -1,11 +1,11 @@
-package com.pedromonteiro.escola.aluno;
+package com.pedromonteiro.escola.domain.aluno;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aluno {
+import com.pedromonteiro.escola.domain.AggregateRoot;
 
-    // Entity
+public class Aluno extends AggregateRoot<AlunoID> {
     
     private CPF cpf;
     private String nome;
@@ -14,14 +14,15 @@ public class Aluno {
     private List<Telefone> telefones = new ArrayList<>();
 
 
-    private Aluno(CPF cpf, String nome, Email email) {
+    private Aluno(AlunoID id ,CPF cpf, String nome, Email email) {
+        super(id);
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
     }
 
-    public static Aluno newAluno(String umCpf, String umNome, String umEmail) {
-        return new Aluno(new CPF(umCpf), umNome, new Email(umEmail));
+    public static Aluno newAluno(CPF umCpf, String umNome, Email umEmail) {
+        return new Aluno(AlunoID.unique(), umCpf, umNome, umEmail);
     }
 
 

@@ -1,4 +1,4 @@
-package com.pedromonteiro.escola;
+package com.pedromonteiro.escola.domain;
 
 public abstract class ValueObject {
     

@@ -3,7 +3,7 @@ package com.pedromonteiro.escola;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import com.pedromonteiro.escola.aluno.Email;
+import com.pedromonteiro.escola.domain.aluno.Email;
 
 public class EmailTest {
     
