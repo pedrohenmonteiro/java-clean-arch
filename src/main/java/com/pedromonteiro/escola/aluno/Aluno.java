@@ -1,4 +1,4 @@
-package com.pedromonteiro.escola.Aluno;
+package com.pedromonteiro.escola.aluno;
 
 import java.util.ArrayList;
 import java.util.List;
