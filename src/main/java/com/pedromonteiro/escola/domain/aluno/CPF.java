@@ -1,6 +1,8 @@
 package com.pedromonteiro.escola.domain.aluno;
 
-public class CPF {
+import com.pedromonteiro.escola.domain.ValueObject;
+
+public class CPF extends ValueObject {
     
     private String numero;
 

@@ -1,6 +1,8 @@
 package com.pedromonteiro.escola.domain.aluno;
 
-public class Email {
+import com.pedromonteiro.escola.domain.ValueObject;
+
+public class Email extends ValueObject {
     
     //Value
 

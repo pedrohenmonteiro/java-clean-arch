@@ -3,7 +3,7 @@ package com.pedromonteiro.escola;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import com.pedromonteiro.escola.aluno.Telefone;
+import com.pedromonteiro.escola.domain.aluno.Telefone;
 
 public class TelefoneTest {
     

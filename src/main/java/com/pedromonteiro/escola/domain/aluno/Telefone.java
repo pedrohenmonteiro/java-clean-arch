@@ -1,6 +1,8 @@
 package com.pedromonteiro.escola.domain.aluno;
 
-public class Telefone {
+import com.pedromonteiro.escola.domain.ValueObject;
+
+public class Telefone extends ValueObject {
     
     private String ddd;
     private String numero;
