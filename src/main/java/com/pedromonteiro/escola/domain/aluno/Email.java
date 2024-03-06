@@ -15,6 +15,11 @@ public class Email {
         this.endereco = endereco;
     }
 
+
+    public static Email from(String email) {
+        return new Email(email);
+    }
+
     public String getEndereco() {
         return endereco;
     }

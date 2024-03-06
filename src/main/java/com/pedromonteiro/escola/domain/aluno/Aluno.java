@@ -25,6 +25,10 @@ public class Aluno extends AggregateRoot<AlunoID> {
         return new Aluno(AlunoID.unique(), umCpf, umNome, umEmail);
     }
 
+    public static Aluno with(AlunoID id, CPF cpf, String nome, Email email) {
+        return new Aluno(id, cpf, nome, email);
+    }
+
 
 
     public void adicionarTelefone(String ddd, String numero) {

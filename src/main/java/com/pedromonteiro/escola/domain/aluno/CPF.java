@@ -1,4 +1,4 @@
-package com.pedromonteiro.escola.aluno;
+package com.pedromonteiro.escola.domain.aluno;
 
 public class CPF {
     
@@ -9,6 +9,10 @@ public class CPF {
             throw new IllegalArgumentException("CPF inválido. Digite um CPF válido e tente novamente");
         }
         this.numero = numero;
+    }
+
+    public static CPF from(String cpf) {
+        return new CPF(cpf);
     }
 
     public String getNumero() {

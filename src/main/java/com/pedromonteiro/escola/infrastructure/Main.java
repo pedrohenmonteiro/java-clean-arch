@@ -1,4 +1,4 @@
-package com.pedromonteiro.escola.domain;
+package com.pedromonteiro.escola.infrastructure;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
