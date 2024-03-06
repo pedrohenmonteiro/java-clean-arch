@@ -1,4 +1,4 @@
-package com.pedromonteiro.escola.application.aluno;
+package com.pedromonteiro.escola.application.aluno.create;
 
 import com.pedromonteiro.escola.domain.aluno.Aluno;
 import com.pedromonteiro.escola.domain.aluno.AlunoID;

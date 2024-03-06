@@ -7,6 +7,10 @@ public class DefaultCreateAlunoUseCase extends CreateAlunoUseCase{
     
     private AlunoGateway alunoGateway;
 
+    public DefaultCreateAlunoUseCase(AlunoGateway alunoGateway) {
+        this.alunoGateway = alunoGateway;
+    }
+
     @Override
     public CreateAlunoOutput execute(CreateAlunoCommand umCommand) {
 
