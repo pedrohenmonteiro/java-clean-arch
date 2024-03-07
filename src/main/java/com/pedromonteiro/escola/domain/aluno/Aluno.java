@@ -30,6 +30,13 @@ public class Aluno extends AggregateRoot<AlunoID> {
     }
 
 
+    public Aluno update(final CPF umCpf, final String umNome, final Email umEmail) {
+        this.cpf = umCpf;
+        this.nome = umNome;
+        this.email = umEmail;
+
+        return this;
+    }
 
     public void adicionarTelefone(String ddd, String numero) {
         this.telefones.add(new Telefone(ddd, numero));
