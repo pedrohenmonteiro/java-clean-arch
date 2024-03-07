@@ -1,23 +1,20 @@
 package com.pedromonteiro.escola.application.aluno.create;
 
 import com.pedromonteiro.escola.domain.aluno.Aluno;
-import com.pedromonteiro.escola.domain.aluno.AlunoID;
-import com.pedromonteiro.escola.domain.aluno.CPF;
-import com.pedromonteiro.escola.domain.aluno.Email;
 
 public record CreateAlunoOutput(
-    AlunoID id,
-    CPF cpf,
+    String id,
+    String cpf,
     String nome,
-    Email email
+    String email
 ) {
     
     public static CreateAlunoOutput from(final Aluno umAluno) {
         return new CreateAlunoOutput(
-            umAluno.getId(),
-            umAluno.getCpf(),
+            umAluno.getId().getValue(),
+            umAluno.getCpf().getNumero(),
             umAluno.getNome(),
-            umAluno.getEmail()
+            umAluno.getEmail().getEndereco()
         );
     }
 }

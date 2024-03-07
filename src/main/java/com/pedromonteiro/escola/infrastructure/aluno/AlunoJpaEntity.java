@@ -18,7 +18,7 @@ public class AlunoJpaEntity {
     @Column(name = "id", nullable = false)
     private String id;
 
-    @Column(name = "cpf", nullable = false, length = 9)
+    @Column(name = "cpf", nullable = false, length = 11)
     private String cpf;
 
     @Column(name = "nome", nullable = false)

@@ -1,18 +1,15 @@
 package com.pedromonteiro.escola.application.aluno.create;
 
-import com.pedromonteiro.escola.domain.aluno.CPF;
-import com.pedromonteiro.escola.domain.aluno.Email;
-
 public record CreateAlunoCommand(
-    CPF cpf,
+    String cpf,
     String nome,
-    Email email 
+    String email 
 ) {
     
     public static CreateAlunoCommand with(
-        final CPF umCpf,
+        final String umCpf,
         final String umNome,
-        final Email email
+        final String email
     ) {
         return new CreateAlunoCommand(umCpf, umNome, email);
     }

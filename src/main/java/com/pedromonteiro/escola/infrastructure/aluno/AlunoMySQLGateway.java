@@ -1,14 +1,15 @@
-package com.pedromonteiro.escola.infrastructure;
+package com.pedromonteiro.escola.infrastructure.aluno;
 
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.pedromonteiro.escola.domain.aluno.Aluno;
 import com.pedromonteiro.escola.domain.aluno.AlunoGateway;
 import com.pedromonteiro.escola.domain.aluno.AlunoID;
-import com.pedromonteiro.escola.infrastructure.aluno.AlunoJpaEntity;
-import com.pedromonteiro.escola.infrastructure.aluno.AlunoRepository;
 
+@Service
 public class AlunoMySQLGateway implements AlunoGateway{
 
     private final AlunoRepository alunoRepository;
