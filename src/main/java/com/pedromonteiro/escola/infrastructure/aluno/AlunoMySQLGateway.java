@@ -32,8 +32,7 @@ public class AlunoMySQLGateway implements AlunoGateway{
 
     @Override
     public Optional<Aluno> findById(AlunoID umId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return this.alunoRepository.findById(umId.getValue()).map(jpa -> jpa.toAggregate());
     }
 
     @Override
