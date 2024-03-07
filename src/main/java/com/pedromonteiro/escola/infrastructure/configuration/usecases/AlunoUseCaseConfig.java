@@ -7,6 +7,8 @@ import com.pedromonteiro.escola.application.aluno.create.CreateAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.create.DefaultCreateAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.DefaultGetAlunoByIdUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.GetAlunoByIdUseCase;
+import com.pedromonteiro.escola.application.aluno.update.DefaultUpdateAlunoUseCase;
+import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoUseCase;
 import com.pedromonteiro.escola.domain.aluno.AlunoGateway;
 
 @Configuration
@@ -27,5 +29,10 @@ public class AlunoUseCaseConfig {
     @Bean
     public GetAlunoByIdUseCase getAlunoByIdUseCase() {
         return new DefaultGetAlunoByIdUseCase(alunoGateway);
+    }
+
+    @Bean
+    public UpdateAlunoUseCase updateAlunoUseCase() {
+        return new DefaultUpdateAlunoUseCase(alunoGateway);
     }
 }

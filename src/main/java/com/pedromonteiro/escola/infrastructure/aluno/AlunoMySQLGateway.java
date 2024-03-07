@@ -20,23 +20,22 @@ public class AlunoMySQLGateway implements AlunoGateway{
     }
 
     @Override
-    public Aluno create(Aluno umAluno) {
+    public Aluno create(final Aluno umAluno) {
         return save(umAluno);
     }
 
     @Override
-    public Aluno update(Aluno umAluno) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public Aluno update(final Aluno umAluno) {
+        return save(umAluno);
     }
 
     @Override
-    public Optional<Aluno> findById(AlunoID umId) {
+    public Optional<Aluno> findById(final AlunoID umId) {
         return this.alunoRepository.findById(umId.getValue()).map(jpa -> jpa.toAggregate());
     }
 
     @Override
-    public void deleteById(AlunoID umId) {
+    public void deleteById(final AlunoID umId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
     }

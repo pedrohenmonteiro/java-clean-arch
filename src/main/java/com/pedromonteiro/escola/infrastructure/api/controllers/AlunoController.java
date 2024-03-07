@@ -11,6 +11,9 @@ import com.pedromonteiro.escola.application.aluno.create.CreateAlunoOutput;
 import com.pedromonteiro.escola.application.aluno.create.CreateAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.AlunoOutput;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.GetAlunoByIdUseCase;
+import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoCommand;
+import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoOutput;
+import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoUseCase;
 import com.pedromonteiro.escola.infrastructure.api.AlunoApi;
 
 @RestController
@@ -18,12 +21,18 @@ public class AlunoController implements AlunoApi {
 
     private final CreateAlunoUseCase createAlunoUseCase;
     private final GetAlunoByIdUseCase getAlunoByIdUseCase;
+    private final UpdateAlunoUseCase updateAlunoUseCase;
 
     
 
-    public AlunoController(final CreateAlunoUseCase createAlunoUseCase, final GetAlunoByIdUseCase getAlunoByIdUseCase) {
+    public AlunoController(
+        final CreateAlunoUseCase createAlunoUseCase,
+        final GetAlunoByIdUseCase getAlunoByIdUseCase,
+        final UpdateAlunoUseCase updateAlunoUseCase
+        ) {
         this.createAlunoUseCase = Objects.requireNonNull(createAlunoUseCase);
         this.getAlunoByIdUseCase = Objects.requireNonNull(getAlunoByIdUseCase);
+        this.updateAlunoUseCase = Objects.requireNonNull(updateAlunoUseCase);
     }
 
 
@@ -44,6 +53,19 @@ public class AlunoController implements AlunoApi {
 
         return ResponseEntity.ok(output);
     }
+
+
+
+    @Override
+    public ResponseEntity<UpdateAlunoOutput> updateById(String id, UpdateAlunoCommand input) {
+        var aCommand = new UpdateAlunoCommand(id, input.cpf(), input.nome(), input.email());
+
+        var output = updateAlunoUseCase.execute(aCommand);
+
+        return ResponseEntity.ok(output);
+
+    }
     
     
+
 }
