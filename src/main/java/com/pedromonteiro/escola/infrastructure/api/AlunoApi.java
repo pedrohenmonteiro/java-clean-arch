@@ -1,5 +1,7 @@
 package com.pedromonteiro.escola.infrastructure.api;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.pedromonteiro.escola.application.aluno.create.CreateAlunoCommand;
 import com.pedromonteiro.escola.application.aluno.create.CreateAlunoOutput;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.AlunoOutput;
+import com.pedromonteiro.escola.application.aluno.retrieve.list.AlunoListOutput;
 import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoCommand;
 import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoOutput;
 
@@ -23,6 +26,9 @@ public interface AlunoApi {
     
     @GetMapping(value = "{id}")
     ResponseEntity<AlunoOutput> getById(@PathVariable(name = "id") String id);
+
+    @GetMapping
+    ResponseEntity<List<AlunoListOutput>> findAll();
 
     @PutMapping(value = "{id}")
     ResponseEntity<UpdateAlunoOutput> updateById(@PathVariable(name = "id") String id, @RequestBody UpdateAlunoCommand input);

@@ -1,6 +1,7 @@
 package com.pedromonteiro.escola.infrastructure.api.controllers;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,8 @@ import com.pedromonteiro.escola.application.aluno.create.CreateAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.delete.DeleteAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.AlunoOutput;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.GetAlunoByIdUseCase;
+import com.pedromonteiro.escola.application.aluno.retrieve.list.AlunoListOutput;
+import com.pedromonteiro.escola.application.aluno.retrieve.list.ListAlunosUseCase;
 import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoCommand;
 import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoOutput;
 import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoUseCase;
@@ -24,6 +27,7 @@ public class AlunoController implements AlunoApi {
     private final GetAlunoByIdUseCase getAlunoByIdUseCase;
     private final UpdateAlunoUseCase updateAlunoUseCase;
     private final DeleteAlunoUseCase deleteAlunoUseCase;
+    private final ListAlunosUseCase listAlunosUseCase;
 
     
 
@@ -31,12 +35,14 @@ public class AlunoController implements AlunoApi {
         final CreateAlunoUseCase createAlunoUseCase,
         final GetAlunoByIdUseCase getAlunoByIdUseCase,
         final UpdateAlunoUseCase updateAlunoUseCase,
-        final DeleteAlunoUseCase deleteAlunoUseCase
+        final DeleteAlunoUseCase deleteAlunoUseCase,
+        final ListAlunosUseCase listAlunosUseCase
         ) {
         this.createAlunoUseCase = Objects.requireNonNull(createAlunoUseCase);
         this.getAlunoByIdUseCase = Objects.requireNonNull(getAlunoByIdUseCase);
         this.updateAlunoUseCase = Objects.requireNonNull(updateAlunoUseCase);
         this.deleteAlunoUseCase = Objects.requireNonNull(deleteAlunoUseCase);
+        this.listAlunosUseCase = Objects.requireNonNull(listAlunosUseCase);
     }
 
 
@@ -78,5 +84,17 @@ public class AlunoController implements AlunoApi {
 
         return ResponseEntity.noContent().build();
     }
+
+
+
+    @Override
+    public ResponseEntity<List<AlunoListOutput>> findAll() {
+        var output = listAlunosUseCase.execute();
+        return ResponseEntity.ok(output);
+    }
+
+    
+
+
 
 }
