@@ -31,7 +31,7 @@ public class AlunoMySQLGateway implements AlunoGateway{
 
     @Override
     public Optional<Aluno> findById(final AlunoID umId) {
-        return this.alunoRepository.findById(umId.getValue()).map(jpa -> jpa.toAggregate());
+        return this.alunoRepository.findById(umId.getValue()).map(jpaEntity -> jpaEntity.toAggregate());
     }
 
     @Override
@@ -41,8 +41,7 @@ public class AlunoMySQLGateway implements AlunoGateway{
 
     @Override
     public List<Aluno> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return this.alunoRepository.findAll().stream().map(jpaEntity -> jpaEntity.toAggregate()).toList();
     }
 
 

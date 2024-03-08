@@ -9,6 +9,8 @@ import com.pedromonteiro.escola.application.aluno.delete.DefaultDeleteAlunoUseCa
 import com.pedromonteiro.escola.application.aluno.delete.DeleteAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.DefaultGetAlunoByIdUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.GetAlunoByIdUseCase;
+import com.pedromonteiro.escola.application.aluno.retrieve.list.DefaultListAlunosUseCase;
+import com.pedromonteiro.escola.application.aluno.retrieve.list.ListAlunosUseCase;
 import com.pedromonteiro.escola.application.aluno.update.DefaultUpdateAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoUseCase;
 import com.pedromonteiro.escola.domain.aluno.AlunoGateway;
@@ -41,5 +43,10 @@ public class AlunoUseCaseConfig {
     @Bean
     public DeleteAlunoUseCase deleteAlunoUseCase() {
         return new DefaultDeleteAlunoUseCase(alunoGateway);
+    }
+
+    @Bean
+    public ListAlunosUseCase listAlunosUseCase() {
+        return new DefaultListAlunosUseCase(alunoGateway);
     }
 }
