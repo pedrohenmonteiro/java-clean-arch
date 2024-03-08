@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 import com.pedromonteiro.escola.application.aluno.create.CreateAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.create.DefaultCreateAlunoUseCase;
+import com.pedromonteiro.escola.application.aluno.delete.DefaultDeleteAlunoUseCase;
+import com.pedromonteiro.escola.application.aluno.delete.DeleteAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.DefaultGetAlunoByIdUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.GetAlunoByIdUseCase;
 import com.pedromonteiro.escola.application.aluno.update.DefaultUpdateAlunoUseCase;
@@ -34,5 +36,10 @@ public class AlunoUseCaseConfig {
     @Bean
     public UpdateAlunoUseCase updateAlunoUseCase() {
         return new DefaultUpdateAlunoUseCase(alunoGateway);
+    }
+
+    @Bean
+    public DeleteAlunoUseCase deleteAlunoUseCase() {
+        return new DefaultDeleteAlunoUseCase(alunoGateway);
     }
 }

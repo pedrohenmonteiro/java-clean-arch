@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pedromonteiro.escola.application.aluno.create.CreateAlunoCommand;
 import com.pedromonteiro.escola.application.aluno.create.CreateAlunoOutput;
 import com.pedromonteiro.escola.application.aluno.create.CreateAlunoUseCase;
+import com.pedromonteiro.escola.application.aluno.delete.DeleteAlunoUseCase;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.AlunoOutput;
 import com.pedromonteiro.escola.application.aluno.retrieve.get.GetAlunoByIdUseCase;
 import com.pedromonteiro.escola.application.aluno.update.UpdateAlunoCommand;
@@ -22,17 +23,20 @@ public class AlunoController implements AlunoApi {
     private final CreateAlunoUseCase createAlunoUseCase;
     private final GetAlunoByIdUseCase getAlunoByIdUseCase;
     private final UpdateAlunoUseCase updateAlunoUseCase;
+    private final DeleteAlunoUseCase deleteAlunoUseCase;
 
     
 
     public AlunoController(
         final CreateAlunoUseCase createAlunoUseCase,
         final GetAlunoByIdUseCase getAlunoByIdUseCase,
-        final UpdateAlunoUseCase updateAlunoUseCase
+        final UpdateAlunoUseCase updateAlunoUseCase,
+        final DeleteAlunoUseCase deleteAlunoUseCase
         ) {
         this.createAlunoUseCase = Objects.requireNonNull(createAlunoUseCase);
         this.getAlunoByIdUseCase = Objects.requireNonNull(getAlunoByIdUseCase);
         this.updateAlunoUseCase = Objects.requireNonNull(updateAlunoUseCase);
+        this.deleteAlunoUseCase = Objects.requireNonNull(deleteAlunoUseCase);
     }
 
 
@@ -65,7 +69,14 @@ public class AlunoController implements AlunoApi {
         return ResponseEntity.ok(output);
 
     }
-    
-    
+
+
+
+    @Override
+    public ResponseEntity<Void> deleteById(String id) {
+        deleteAlunoUseCase.execute(id);
+
+        return ResponseEntity.noContent().build();
+    }
 
 }

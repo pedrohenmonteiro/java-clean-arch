@@ -36,8 +36,7 @@ public class AlunoMySQLGateway implements AlunoGateway{
 
     @Override
     public void deleteById(final AlunoID umId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        this.alunoRepository.deleteById(umId.getValue());
     }
 
     @Override
